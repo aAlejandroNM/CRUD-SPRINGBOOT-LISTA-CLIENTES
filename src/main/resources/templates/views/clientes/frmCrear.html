@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+<div class="container">
+
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-white"></div>
+        <div class="card-body">
+            <form>
+                <div class="form-group row">
+                    <label class="col-md-2" for="nombres">Nombres</label>
+                    <input type="text" class="form-control form/control-sm col-md-6" id="nombres"
+                           placeholder="Nombres del Cliente">
+                    <small></small>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control form/control-sm col-md-6" id="apellidos"
+                           placeholder="Apellidos del Cliente">
+                    <small></small>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="telefono">Telefono</label>
+                    <input type="text" class="form-control form/control-sm col-md-6" id="telefono"
+                           placeholder="Telefono del Cliente">
+                    <small></small>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="email">Email</label>
+                    <input type="text" class="form-control form/control-sm col-md-6" id="email"
+                           placeholder="Email del Cliente">
+                    <small></small>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="ciudad">Ciudad</label>
+                    <select type="text" class="form-control form/control-sm col-md-6" id="ciudad">
+                        <option>colombias</option>
+                        <option>prueba</option>
+                    </select>
+                </div>
+                <div class="card-footer bg-dark">
+                    <input type="submit" class="btn btn-primary btn-sm" th:text="Guardar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
