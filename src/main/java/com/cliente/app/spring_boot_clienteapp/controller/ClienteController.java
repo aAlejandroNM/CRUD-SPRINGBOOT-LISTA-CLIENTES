@@ -1,6 +1,8 @@
 package com.cliente.app.spring_boot_clienteapp.controller;
 
+import com.cliente.app.spring_boot_clienteapp.models.entity.Ciudad;
 import com.cliente.app.spring_boot_clienteapp.models.entity.Cliente;
+import com.cliente.app.spring_boot_clienteapp.models.service.ICiudadService;
 import com.cliente.app.spring_boot_clienteapp.models.service.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,8 @@ public class ClienteController {
 
     @Autowired
     private IClienteService clienteService;
+    @Autowired
+    private ICiudadService ciudadService;
     @GetMapping("/")
     public String listarClientes(Model model){
 
@@ -25,7 +29,14 @@ public class ClienteController {
         return "/views/clientes/listar";
     }
     @GetMapping("/create")
-    public String crear(){
+    public String crear(Model model){
+
+        Cliente cliente = new Cliente();
+
+        List<Ciudad> listCiudades = ciudadService.listaCiudades();
+        model.addAttribute("titulo", "Formulario: Nuevo Cliente");
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("ciudades", listCiudades);
         return "/views/clientes/frmCrear";
     }
 
