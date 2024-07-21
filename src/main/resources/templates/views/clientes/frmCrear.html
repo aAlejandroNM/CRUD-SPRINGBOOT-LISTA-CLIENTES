@@ -9,7 +9,7 @@
     <div class="card bg-light">
         <div class="card-header bg-dark text-white" th:text="${titulo}"></div>
         <div class="card-body">
-            <form th:object="${cliente}">
+            <form th:action="@{/views/clientes/save}" th:object="${cliente}" method="post">
 
                 <div class="form-group row">
                     <label class="col-md-2" for="nombres">Nombres</label>
