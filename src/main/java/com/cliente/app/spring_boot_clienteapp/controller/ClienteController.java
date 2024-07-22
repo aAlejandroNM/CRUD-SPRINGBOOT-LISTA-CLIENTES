@@ -7,10 +7,7 @@ import com.cliente.app.spring_boot_clienteapp.models.service.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -47,6 +44,27 @@ public class ClienteController {
 
         clienteService.guardar(cliente);
         System.out.println("Cliente guardado con exito!!!");
+        return "redirect:/views/clientes/";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editar(@PathVariable("id") Long idCliente, Model model){
+
+        Cliente cliente = clienteService.buscarPorId(idCliente);
+
+        List<Ciudad> listCiudades = ciudadService.listaCiudades();
+        model.addAttribute("titulo", "Formulario: Editar Cliente");
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("ciudades", listCiudades);
+        return "/views/clientes/frmCrear";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String eliminar(@PathVariable("id") Long idCliente){
+
+        clienteService.eliminar(idCliente);
+        System.out.println("Registro Eliminado con exito!!!");
+
         return "redirect:/views/clientes/";
     }
 
