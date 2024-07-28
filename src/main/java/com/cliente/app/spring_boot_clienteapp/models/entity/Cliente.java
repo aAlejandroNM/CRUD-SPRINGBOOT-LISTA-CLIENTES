@@ -1,6 +1,9 @@
 package com.cliente.app.spring_boot_clienteapp.models.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 
 import java.io.Serializable;
 
@@ -10,9 +13,15 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
     private String nombres;
+    @NotEmpty
     private String apellidos;
+    @NotEmpty
+    @Pattern(regexp =" [0-9]{4}-[0-9]{4}")
     private String telefono;
+    @NotEmpty
+    @Email
     private String email;
     @ManyToOne
     @JoinColumn(name = "ciudades_id")

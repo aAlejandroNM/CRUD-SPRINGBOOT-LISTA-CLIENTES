@@ -16,26 +16,30 @@
                     <label class="col-md-2" for="nombres">Nombres</label>
                     <input type="text" th:field="*{nombres}" class="form-control form/control-sm col-md-6" id="nombres"
                            placeholder="Nombres del Cliente">
-                    <small></small>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('nombres')}" th:errors="*{nombres}">
+                    </small>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-md-2" for="apellidos">Apellidos</label>
                     <input type="text" th:field="*{apellidos}" class="form-control form/control-sm col-md-6" id="apellidos"
                            placeholder="Apellidos del Cliente">
-                    <small></small>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}">
+                    </small>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2" for="telefono">Telefono</label>
                     <input type="text" th:field="*{telefono}" class="form-control form/control-sm col-md-6" id="telefono"
                            placeholder="Telefono del Cliente">
-                    <small></small>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}">
+                    </small>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2" for="email">Email</label>
                     <input type="text" th:field="*{email}" class="form-control form/control-sm col-md-6" id="email"
                            placeholder="Email del Cliente">
-                    <small></small>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                    </small>
                 </div>
                 <div class="form-group row">
                     <label class="col-md-2" for="ciudad">Ciudad</label>
