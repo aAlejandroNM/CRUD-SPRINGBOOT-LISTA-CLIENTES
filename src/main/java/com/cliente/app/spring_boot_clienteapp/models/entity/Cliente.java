@@ -18,7 +18,7 @@ public class Cliente implements Serializable {
     @NotEmpty
     private String apellidos;
     @NotEmpty
-    @Pattern(regexp =" [0-9]{4}-[0-9]{4}")
+    @Pattern(regexp ="[0-9]{4}-[0-9]{4}")
     private String telefono;
     @NotEmpty
     @Email
