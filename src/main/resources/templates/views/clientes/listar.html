@@ -13,6 +13,11 @@
     th:text="'Nuevo Cliente'" title="Crear Nuevo Registro">
     </a>
 
+    <a class="nav-link float-end" th:href="@{/views/clientes/(format=pdf)}"
+       title="Exportar a PDF" target="_blank">
+        <img class="img-responsive center-box" th:src="@{/img/pdf.png}" height="auto">
+    </a>
+
     <table class="table">
         <thead class="table-dark">
             <th scope="col">Id</th>
