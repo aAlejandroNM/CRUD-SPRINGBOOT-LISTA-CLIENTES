@@ -1,4 +1,4 @@
-package com.cliente.app.spring_boot_clienteapp.controller;
+package controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

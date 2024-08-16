@@ -1,6 +1,6 @@
-package com.cliente.app.spring_boot_clienteapp.models.service;
+package models.service;
 
-import com.cliente.app.spring_boot_clienteapp.models.entity.Cliente;
+import models.entity.Cliente;
 
 import java.util.List;
 

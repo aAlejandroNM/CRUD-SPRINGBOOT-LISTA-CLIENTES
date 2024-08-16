@@ -1,9 +1,9 @@
-package com.cliente.app.spring_boot_clienteapp.controller;
+package controller;
 
-import com.cliente.app.spring_boot_clienteapp.models.entity.Ciudad;
-import com.cliente.app.spring_boot_clienteapp.models.entity.Cliente;
-import com.cliente.app.spring_boot_clienteapp.models.service.ICiudadService;
-import com.cliente.app.spring_boot_clienteapp.models.service.IClienteService;
+import models.entity.Ciudad;
+import models.entity.Cliente;
+import models.service.ICiudadService;
+import models.service.IClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.cliente.app.spring_boot_clienteapp.models.entity;
+package models.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
