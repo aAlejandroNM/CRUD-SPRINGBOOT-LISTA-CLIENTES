@@ -1,6 +1,6 @@
-package models.repository;
+package com.cliente.app.spring_boot_clienteapp.models.repository;
 
-import models.entity.Cliente;
+import com.cliente.app.spring_boot_clienteapp.models.entity.Cliente;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

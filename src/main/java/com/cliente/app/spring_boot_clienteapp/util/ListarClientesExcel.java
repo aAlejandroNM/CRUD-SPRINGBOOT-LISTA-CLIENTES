@@ -1,6 +1,6 @@
-package util;
+package com.cliente.app.spring_boot_clienteapp.util;
 
-import models.entity.Cliente;
+import com.cliente.app.spring_boot_clienteapp.models.entity.Cliente;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.poi.ss.usermodel.Cell;

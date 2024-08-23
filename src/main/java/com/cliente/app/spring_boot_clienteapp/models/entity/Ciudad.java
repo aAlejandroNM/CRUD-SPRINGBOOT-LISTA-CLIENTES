@@ -1,4 +1,4 @@
-package models.entity;
+package com.cliente.app.spring_boot_clienteapp.models.entity;
 
 import jakarta.persistence.*;
 

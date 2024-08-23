@@ -1,6 +1,6 @@
-package util;
+package com.cliente.app.spring_boot_clienteapp.util;
 
-import models.entity.Cliente;
+import com.cliente.app.spring_boot_clienteapp.models.entity.Cliente;
 import com.lowagie.text.*;
 import com.lowagie.text.Font;
 import com.lowagie.text.pdf.PdfPCell;

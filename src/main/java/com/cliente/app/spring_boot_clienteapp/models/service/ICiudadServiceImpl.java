@@ -1,7 +1,7 @@
-package models.service;
+package com.cliente.app.spring_boot_clienteapp.models.service;
 
-import models.entity.Ciudad;
-import models.repository.CiudadRepository;
+import com.cliente.app.spring_boot_clienteapp.models.entity.Ciudad;
+import com.cliente.app.spring_boot_clienteapp.models.repository.CiudadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
