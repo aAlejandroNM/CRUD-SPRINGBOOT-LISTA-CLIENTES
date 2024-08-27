@@ -7,20 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
-public class SpringBootClienteappApplication implements CommandLineRunner {
+public class SpringBootClienteappApplication {
 
-	@Autowired
-	private BCryptPasswordEncoder passEncoder;
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootClienteappApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		String pass1 = "user";
-		String pass2 = "admin";
-
-		System.out.println(passEncoder.encode(pass1));
-		System.out.println(passEncoder.encode(pass2));
-	}
 }

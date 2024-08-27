@@ -1,11 +1,16 @@
 package com.cliente.app.spring_boot_clienteapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
@@ -17,16 +22,21 @@ public class WebSecurityConfig{
     @Autowired
     private BCryptPasswordEncoder passEncoder;
 
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/index", "/home", "/", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/views/clientes/").hasRole("USER")
+                        .requestMatchers("/views/clientes/create").hasRole("ADMIN")
+                        .requestMatchers("/views/clientes/save").hasRole("ADMIN")
+                        .requestMatchers("/views/clientes/edit/**").hasRole("ADMIN")
+                        .requestMatchers("/views/clientes/delete/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
+                )
+                .formLogin(); // Usa la configuración predeterminada
 
-    protected void configure(HttpSecurity http) throws Exception{
-        http.authorizeRequests().requestMatchers("/index","/home","/","/css/**","/js/**","/images/**")
-                .permitAll().requestMatchers("/views/clientes/").hasAnyRole("USER")
-                .requestMatchers("/views/clientes/create").hasAnyRole("ADMIN")
-                .requestMatchers("/views/clientes/save").hasAnyRole("ADMIN")
-                .requestMatchers("/views/clientes/edit/**").hasAnyRole("ADMIN")
-                .requestMatchers("/views/clientes/delete/**").hasAnyRole("ADMIN")
-                .anyRequest().authenticated();
-
+        return http.build();
     }
 
     @Autowired
