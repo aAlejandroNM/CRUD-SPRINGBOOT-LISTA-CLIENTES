@@ -1,0 +1,66 @@
+/* Estilos específicos para el formulario de inicio de sesión */
+.form-signin {
+  max-width: 330px;
+  padding: 30px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el encabezado del formulario */
+.form-signin .form-signin-heading {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilos para los controles del formulario */
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  box-sizing: border-box;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.form-signin .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-signin input[type="text"] {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* Estilos para el botón */
+.form-signin .btn-primary {
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.form-signin .btn-primary:hover,
+.form-signin .btn-primary:focus {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+/* Ajustes para el espaciado en el formulario */
+hr.featurette-divider {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

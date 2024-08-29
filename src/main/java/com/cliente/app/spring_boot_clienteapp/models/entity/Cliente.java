@@ -75,6 +75,8 @@ public class Cliente implements Serializable {
         this.ciudad = ciudad;
     }
 
+
+
     @Override
     public String toString() {
         return "Cliente{" +

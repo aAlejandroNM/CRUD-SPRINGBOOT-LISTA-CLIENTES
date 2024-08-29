@@ -26,7 +26,7 @@ public class WebSecurityConfig{
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/index", "/home", "/", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/index", "/home", "/", "/css/**", "/js/**", "/img/**").permitAll()
                         .requestMatchers("/views/clientes/").hasRole("USER")
                         .requestMatchers("/views/clientes/create").hasRole("ADMIN")
                         .requestMatchers("/views/clientes/save").hasRole("ADMIN")
@@ -34,7 +34,11 @@ public class WebSecurityConfig{
                         .requestMatchers("/views/clientes/delete/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
-                .formLogin(); // Usa la configuración predeterminada
+                .formLogin(form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/home", true) // Redirige siempre a /home después de un login exitoso
+                        .permitAll()
+                );
 
         return http.build();
     }
