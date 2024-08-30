@@ -27,8 +27,6 @@ public class LoginController {
             model.addAttribute("success", "ATENCION: Cierre de sesion exitoso !!");
         }
 
-
-
         return "login";
     }
 }
