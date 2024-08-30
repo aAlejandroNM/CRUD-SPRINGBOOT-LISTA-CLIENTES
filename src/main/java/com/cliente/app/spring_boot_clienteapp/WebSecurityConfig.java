@@ -1,5 +1,6 @@
 package com.cliente.app.spring_boot_clienteapp;
 
+import com.cliente.app.spring_boot_clienteapp.util.LoginSuccessMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +23,9 @@ public class WebSecurityConfig{
     @Autowired
     private BCryptPasswordEncoder passEncoder;
 
+    @Autowired
+    private LoginSuccessMessage successMessage;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -37,6 +41,7 @@ public class WebSecurityConfig{
                 .formLogin(form -> form
                         .loginPage("/login")
                         .defaultSuccessUrl("/home", true) // Redirige siempre a /home después de un login exitoso
+                        .successHandler(successMessage)
                         .permitAll()
                 );
 
