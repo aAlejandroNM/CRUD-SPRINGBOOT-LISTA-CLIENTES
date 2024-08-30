@@ -31,7 +31,7 @@
             <th scope="col">Telefono</th>
             <th scope="col">Correo</th>
             <th scope="col">Ciudad</th>
-            <th scope="col" sec:authorize="hasRole('ROLE_ADMIN')">Editar</th>
+            <th scope="col" sec:authorize="hasRole('ROLE_USER')">Editar</th>
             <th scope="col" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</th>
         </thead>
         <tbody>
@@ -42,7 +42,7 @@
                 <td th:text="${cl.telefono}"></td>
                 <td th:text="${cl.email}"></td>
                 <td th:text="${cl.ciudad.ciudad}"></td>
-                <td sec:authorize="hasRole('ROLE_ADMIN')">
+                <td sec:authorize="hasRole('ROLE_USER')">
                     <a class="btn btn-success btn-sm" th:href="@{/views/clientes/edit/} + ${cl.id}"
                        th:text="'Editar'" title="Editar Registro">
                     </a>
