@@ -24,18 +24,18 @@
             <th scope="col" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</th>
         </thead>
         <tbody>
-            <tr th:each="Pr:${productos}">
-                <th scope="row" th:text="${Pr.id}"></th>
-                <td th:text="${cl.nombreProducto}"></td>
-                <td th:text="${cl.precioCompra}"></td>
-                <td th:text="${cl.stock}"></td>
+            <tr th:each="pr:${productos}">
+                <th scope="row" th:text="${pr.id}"></th>
+                <td th:text="${pr.nombreProducto}"></td>
+                <td th:text="${pr.precioCompra}"></td>
+                <td th:text="${pr.stock}"></td>
                 <td sec:authorize="hasRole('ROLE_USER')">
-                    <a class="btn btn-success btn-sm" th:href="@{/productos/edit/} + ${Pr.id}"
+                    <a class="btn btn-success btn-sm" th:href="@{/productos/edit/} + ${pr.id}"
                        th:text="'Editar'" title="Editar Registro">
                     </a>
                 </td>
                 <td sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a class="btn btn-danger btn-sm" th:href="@{/productos/delete/} + ${Pr.id}"
+                    <a class="btn btn-danger btn-sm" th:href="@{/productos/delete/} + ${pr.id}"
                        th:text="'Eliminar'" title="Eliminar Registro" onclick="return confirm('Esta seguro de eliminar el registro ?');">
                     </a>
                 </td>

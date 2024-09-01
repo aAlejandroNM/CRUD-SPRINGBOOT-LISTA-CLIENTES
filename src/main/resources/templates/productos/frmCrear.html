@@ -16,7 +16,7 @@
                     <input type="hidden" th:field="*{id}">
                     <label class="col-md-2" for="nombreProducto">Producto</label>
                     <input type="text" th:field="*{nombreProducto}" class="form-control form/control-sm col-md-6" id="nombreProducto"
-                           placeholder="Nombre del Cliente">
+                           placeholder="Nombre del Producto">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('nombreProducto')}" th:errors="*{nombreProducto}">
                     </small>
                 </div>
@@ -29,8 +29,8 @@
                     </small>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2" for="precio">Precio</label>
-                    <input type="text" th:field="*{precioCompra}" class="form-control form/control-sm col-md-6" id="precio"
+                    <label class="col-md-2" for="precioCompra">Precio</label>
+                    <input type="text" th:field="*{precioCompra}" class="form-control form/control-sm col-md-6" id="precioCompra"
                            placeholder="Precio del Producto">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('precioCompra')}" th:errors="*{precioCompra}">
                     </small>

@@ -13,8 +13,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Controller
@@ -48,12 +53,30 @@ public class ProductoController {
 
     @Secured({"ROLE_ADMIN","ROLE_USER"})
     @PostMapping("/save")
-    public String guardar(@Valid @ModelAttribute Producto producto, BindingResult result, Model model, RedirectAttributes attribute) {
+    public String guardar(@Valid @ModelAttribute Producto producto, BindingResult result,
+                          Model model, @RequestParam("file") MultipartFile imagen,
+                          RedirectAttributes attribute) throws IOException {
         if (result.hasErrors()){
             model.addAttribute("titulo", "Formulario: Nuevo Producto");
             model.addAttribute("producto", producto);
             System.out.println("Existieron Errores en el formulario");
             return "/productos/frmCrear";
+        }
+
+        if (!imagen.isEmpty()){
+            Path directorioImagenes = Paths.get("src//main//resources//static/img");
+            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+
+            try {
+                byte[] bytesImg = imagen.getBytes();
+                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+                Files.write(rutaCompleta, bytesImg);
+
+                producto.setImagen(imagen.getOriginalFilename());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         }
 
         iProductoService.guardarProductos(producto);
@@ -80,6 +103,9 @@ public class ProductoController {
             attribute.addFlashAttribute("error","Error con el id del producto");
             return "redirect:/productos/";
         }
+
+        model.addAttribute("titulo", "Formulario: Editar Producto");
+        model.addAttribute("producto", producto);
 
         return "/productos/frmCrear";
     }
