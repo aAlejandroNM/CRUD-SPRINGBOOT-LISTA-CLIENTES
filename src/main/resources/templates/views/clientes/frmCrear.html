@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-<head th:replace="plantilla/template :: head">
+<head th:replace="~{plantilla/template :: head}">
 </head>
 <body>
-<header th:replace="plantilla/template :: header"></header>
+<header th:replace="~{plantilla/template :: header}"></header>
 <div class="container">
 
     <div class="card bg-light">
         <div class="card-header bg-dark text-white" th:text="${titulo}"></div>
         <div class="card-body">
             <form th:action="@{/views/clientes/save}" th:object="${cliente}" method="post">
-
                 <div class="form-group row">
                     <input type="hidden" th:field="*{id}">
                     <label class="col-md-2" for="nombres">Nombres</label>
@@ -59,6 +58,6 @@
 </div>
 
 
-<footer th:replace="plantilla/template :: footer"></footer>
+<footer th:replace="~{plantilla/template :: footer}"></footer>
 </body>
 </html>

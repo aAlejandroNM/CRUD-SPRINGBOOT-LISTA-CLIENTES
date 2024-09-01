@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+<div class="container">
+
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+        <div class="card-body">
+            <form th:action="@{/productos/save}" th:object="${producto}" method="post"
+            enctype="multipart/form-data">
+
+                <div class="form-group row">
+                    <input type="hidden" th:field="*{id}">
+                    <label class="col-md-2" for="nombreProducto">Producto</label>
+                    <input type="text" th:field="*{nombreProducto}" class="form-control form/control-sm col-md-6" id="nombreProducto"
+                           placeholder="Nombre del Cliente">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('nombreProducto')}" th:errors="*{nombreProducto}">
+                    </small>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2" for="stock">Stock</label>
+                    <input type="number" th:field="*{stock}" class="form-control form/control-sm col-md-6" id="stock"
+                           placeholder="Stock del Producto">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}">
+                    </small>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="precio">Precio</label>
+                    <input type="text" th:field="*{precioCompra}" class="form-control form/control-sm col-md-6" id="precio"
+                           placeholder="Precio del Producto">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('precioCompra')}" th:errors="*{precioCompra}">
+                    </small>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="imagen">Imagen</label>
+                    <input type="file" name="file" class="form-control form/control-sm col-md-6" id="imagen">
+                </div>
+
+                <div class="card-footer bg-dark">
+                    <input type="submit" class="btn btn-primary btn-sm" value="Guardar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
