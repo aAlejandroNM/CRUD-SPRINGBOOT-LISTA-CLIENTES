@@ -86,6 +86,31 @@ public class ProductoController {
     }
 
     @Secured({"ROLE_ADMIN","ROLE_USER"})
+    @GetMapping("/detalle/{id}")
+    public String detalleProducto(@PathVariable("id") Long idProducto, Model model, RedirectAttributes attribute){
+
+        Producto producto = null;
+
+        if (idProducto > 0){
+            producto = iProductoService.buscarProductosPorId(idProducto);
+            if (producto == null){
+                System.out.println("Error:  El ID del producto no existe");
+                attribute.addFlashAttribute("error","ERROR: El id del producto no existe");
+                return "redirect:/productos/";
+            }
+        }else {
+            System.out.println("Error con el id del producto");
+            attribute.addFlashAttribute("error","Error con el id del producto");
+            return "redirect:/productos/";
+        }
+
+        model.addAttribute("titulo", "Detalle del producto " + producto.getNombreProducto());
+        model.addAttribute("producto", producto);
+
+        return "/productos/detalleProducto";
+    }
+
+    @Secured({"ROLE_ADMIN","ROLE_USER"})
     @GetMapping("/edit/{id}")
     public String editar(@PathVariable("id") Long idProducto, Model model, RedirectAttributes attribute){
 

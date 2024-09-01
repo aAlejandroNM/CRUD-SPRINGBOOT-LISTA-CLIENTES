@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+<div class="container">
+
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-white text-center text-uppercase" th:text="${titulo}"></div>
+        <div class="card-body">
+            <img class="img-thumbnail rounded float-start" th:src="@{'/img/' + ${producto.imagen}}"
+            th:alt="${producto.imagen}" style="max-width:25%" >
+            <ul class="list-group">
+                <li class="list-group-item" th:text="'NOMBRE DEL PRODUCTO: ' +${producto.nombreProducto}"></li>
+                <li class="list-group-item" th:text="'PRECIO DEL PRODUCTO: ' +${producto.precioCompra}"></li>
+                <li class="list-group-item" th:text="'STOCK: ' +${producto.stock}"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

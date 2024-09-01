@@ -25,7 +25,9 @@
         </thead>
         <tbody>
             <tr th:each="pr:${productos}">
-                <th scope="row" th:text="${pr.id}"></th>
+                <th scope="row">
+                    <a th:href="@{/productos/detalle/}+${pr.id}" class="btn btn-info btn" th:text="${pr.id}" ></a>
+                </th>
                 <td th:text="${pr.nombreProducto}"></td>
                 <td th:text="${pr.precioCompra}"></td>
                 <td th:text="${pr.stock}"></td>
