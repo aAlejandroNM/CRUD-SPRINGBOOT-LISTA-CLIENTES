@@ -9,7 +9,7 @@
     <div class="card bg-light">
         <div class="card-header bg-dark text-white text-center text-uppercase" th:text="${titulo}"></div>
         <div class="card-body">
-            <img class="img-thumbnail rounded float-start" th:src="@{'/img/' + ${producto.imagen}}"
+            <img class="img-thumbnail rounded float-start" th:src="@{'/recursos/' + ${producto.imagen}}"
             th:alt="${producto.imagen}" style="max-width:25%" >
             <ul class="list-group">
                 <li class="list-group-item" th:text="'NOMBRE DEL PRODUCTO: ' +${producto.nombreProducto}"></li>

@@ -64,8 +64,8 @@ public class ProductoController {
         }
 
         if (!imagen.isEmpty()){
-            Path directorioImagenes = Paths.get("src//main//resources//static/img");
-            String rutaAbsoluta = directorioImagenes.toFile().getAbsolutePath();
+            //Path directorioImagenes = Paths.get("src//main//resources//static/img");
+            String rutaAbsoluta = "C://Users//USUARIO//Producto//recursos";
 
             try {
                 byte[] bytesImg = imagen.getBytes();
